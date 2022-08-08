@@ -17,6 +17,7 @@ package com.example.lemonade
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.Settings.Global.getString
 import android.util.Log.d
 import android.widget.ImageView
 import android.widget.TextView
@@ -158,8 +159,9 @@ class MainActivity : AppCompatActivity() {
 //                    textAction.text = getString(R.string.lemon_squeeze)
                     textAction.setText(R.string.lemon_squeeze)
                 } else {
-//                    textAction.text = getString(R.string.squeeze_count)
-                    textAction.setText(R.string.squeeze_count)
+                    textAction.text = String.format(getString(R.string.squeeze_count), squeezeCount)
+//                  IMPORTANT: THIS String.format allows me to put string format with
+//                    squeezeCount variable to replace the %1$d String replacement operator!!
                 }
                 lemonImage?.setImageResource(R.drawable.lemon_squeeze)
             }
