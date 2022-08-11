@@ -159,9 +159,13 @@ class MainActivity : AppCompatActivity() {
 //                    textAction.text = getString(R.string.lemon_squeeze)
                     textAction.setText(R.string.lemon_squeeze)
                 } else {
-                    textAction.text = String.format(getString(R.string.squeeze_count), squeezeCount)
+//                    textAction.text = String.format(getString(R.string.squeeze_count), squeezeCount)
 //                  IMPORTANT: THIS String.format allows me to put string format with
 //                    squeezeCount variable to replace the %1$d String replacement operator!!
+
+//                    Alternatively we can access the String with its format directly using the
+//                    resources class instance from getResources public abstract function?
+                    textAction.text = resources.getString(R.string.squeeze_count, squeezeCount)
                 }
                 lemonImage?.setImageResource(R.drawable.lemon_squeeze)
             }
